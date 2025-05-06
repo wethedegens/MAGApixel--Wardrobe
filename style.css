@@ -85,6 +85,15 @@ h1 {
     cursor: pointer;
   }
   
+  .thumbnails img {
+    width: 40px;
+    height: auto;
+    margin: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
   #canvas img:not([src]):not([src=""]) {
     visibility: hidden;
   }

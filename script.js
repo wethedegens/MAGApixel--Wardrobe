@@ -8,63 +8,35 @@ function toggleThumbnails(sectionId) {
   }
   
   // Load trait thumbnails from folder and set up image previews
-  function loadTraitThumbnails(traitType, containerId, folderPath) {
+  async function loadTraitThumbnails(traitType, containerId, folderPath) {
+    const response = await fetch('traits/manifest.json');
+    const manifest = await response.json();
+    const files = manifest[traitType];
+  
     const container = document.getElementById(containerId);
+    container.innerHTML = '';
   
-    fetch(folderPath)
-      .then(response => response.text())
-      .then(data => {
-        const parser = new DOMParser();
-        const html = parser.parseFromString(data, 'text/html');
-        const links = html.querySelectorAll('a');
-  
-        links.forEach(link => {
-          const fileName = link.getAttribute('href');
-          if (fileName.endsWith('.png') || fileName.endsWith('.gif')) {
-            const img = document.createElement('img');
-            img.src = `${folderPath}/${fileName.replace(/^.*[\\\/]/, '')}`;
-            img.alt = fileName;
-            img.classList.add('thumbnail');
-            img.title = fileName.replace(/\.[^/.]+$/, ''); // Tooltip text
-             // sets tooltip text (removes .png)
-  
-             img.onclick = () => {
-                const traitImage = document.getElementById(traitType);
-                const newSrc = `${folderPath}/${fileName.replace(/^.*[\\\/]/, '')}`;
-              
-                if (traitImage) {
-                  traitImage.classList.add('fade-out');
-              
-                  setTimeout(() => {
-                    traitImage.src = newSrc;
-                    traitImage.classList.remove('fade-out');
-                    traitImage.style.display = 'inline';
-                  }, 200);
-                }
-              };
-              
-  
-            container.appendChild(img);
-          }
-        });
-      });
+    files.forEach(file => {
+      const img = document.createElement('img');
+      img.src = `${folderPath}/${file}`;
+      img.className = 'trait-thumb';
+      img.onclick = () => {
+        document.getElementById(traitType).src = `${folderPath}/${file}`;
+      };
+      container.appendChild(img);
+    });
   }
   
-  // Call the function for each trait type
   window.onload = () => {
-    loadTraitThumbnails('background', 'background-thumbnails', basePath + 'traits/background');
-    loadTraitThumbnails('skin', 'skin-thumbnails', basePath + 'traits/skin');
-    loadTraitThumbnails('face', 'face-thumbnails', basePath + 'traits/face');
-    loadTraitThumbnails('body', 'body-thumbnails', basePath + 'traits/body');
-    loadTraitThumbnails('head', 'head-thumbnails', basePath + 'traits/head');
-    loadTraitThumbnails('glasses', 'glasses-thumbnails', basePath + 'traits/glasses');
-    loadTraitThumbnails('hand', 'hand-thumbnails', basePath + 'traits/hand');
-    
-    
-    // Test change to trigger GitHub Desktop
-
-    
+    loadTraitThumbnails('background', 'background-thumbnails', 'traits/background');
+    loadTraitThumbnails('skin', 'skin-thumbnails', 'traits/skin');
+    loadTraitThumbnails('face', 'face-thumbnails', 'traits/face');
+    loadTraitThumbnails('body', 'body-thumbnails', 'traits/body');
+    loadTraitThumbnails('head', 'head-thumbnails', 'traits/head');
+    loadTraitThumbnails('glasses', 'glasses-thumbnails', 'traits/glasses');
+    loadTraitThumbnails('hand', 'hand-thumbnails', 'traits/hand');
   };
+  
   const themeToggleBtn = document.getElementById("theme-toggle-btn");
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
