@@ -1,4 +1,7 @@
 // Toggle visibility of trait section
+const isGitHub = window.location.hostname.includes("github.io");
+const basePath = isGitHub ? "MAGApixel--Wardrobe/" : "";
+
 function toggleThumbnails(sectionId) {
     const section = document.getElementById(sectionId);
     section.style.display = section.style.display === 'none' ? 'block' : 'none';
@@ -49,13 +52,14 @@ function toggleThumbnails(sectionId) {
   
   // Call the function for each trait type
   window.onload = () => {
-    loadTraitThumbnails('background', 'background-thumbnails', './traits/background');
-    loadTraitThumbnails('skin', 'skin-thumbnails', './traits/skin');
-    loadTraitThumbnails('face', 'face-thumbnails', './traits/face');
-    loadTraitThumbnails('body', 'body-thumbnails', './traits/body');
-    loadTraitThumbnails('head', 'head-thumbnails', './traits/head');
-    loadTraitThumbnails('glasses', 'glasses-thumbnails', './traits/glasses');
-    loadTraitThumbnails('hand', 'hand-thumbnails', './traits/hand');
+    loadTraitThumbnails('background', 'background-thumbnails', basePath + 'traits/background');
+    loadTraitThumbnails('skin', 'skin-thumbnails', basePath + 'traits/skin');
+    loadTraitThumbnails('face', 'face-thumbnails', basePath + 'traits/face');
+    loadTraitThumbnails('body', 'body-thumbnails', basePath + 'traits/body');
+    loadTraitThumbnails('head', 'head-thumbnails', basePath + 'traits/head');
+    loadTraitThumbnails('glasses', 'glasses-thumbnails', basePath + 'traits/glasses');
+    loadTraitThumbnails('hand', 'hand-thumbnails', basePath + 'traits/hand');
+    
     
     // Test change to trigger GitHub Desktop
 
