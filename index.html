@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <img class="header-image" src="images/mp-logo.png" alt="MAGApixel Logo" />
+    <title>MAGApixel Wardrobe</title>
+    <link href="https://fonts.cdnfonts.com/css/vcr-osd-mono" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body>
+    <div class="app-container">
+      <div class="canvas-column">
+        <h1>MAGApixel Wardrobe</h1>
+        <div id="canvas" draggable="true">
+          <img id="default-preview" src="traits/default/default-preview.png" />
+          <img id="background" class="trait-layer" />
+          <img id="skin" class="trait-layer" />
+          <img id="face" class="trait-layer" />
+          <img id="body" class="trait-layer" />
+          <img id="head" class="trait-layer" />
+          <img id="glasses" class="trait-layer" />
+          <img id="hand" class="trait-layer" />
+          
+        </div>
+        <button id="download-btn">Download PNG</button>
+        <button id="randomize-btn">Randomize</button>
+        <button id="clear-btn">Clear All</button>
+        <button id="save-fav-btn" class="styled-btn favorite-btn">⭐ Save Favorite</button>
+        <button id="load-fav-btn" class="styled-btn favorite-btn">📂 Load Favorite</button>
+        <button id="theme-toggle-btn" class="action-btn theme-toggle-btn">Toggle Theme</button>
+   
+      </div>
+      <div class="controls-column">
+        <div class="trait-section">
+          <h2>Background <button onclick="toggleThumbnails('background-thumbnails')">📁</button></h2>
+          <div id="background-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Skin <button onclick="toggleThumbnails('skin-thumbnails')">📁</button></h2>
+          <div id="skin-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Face <button onclick="toggleThumbnails('face-thumbnails')">📁</button></h2>
+          <div id="face-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Body <button onclick="toggleThumbnails('body-thumbnails')">📁</button></h2>
+          <div id="body-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Head <button onclick="toggleThumbnails('head-thumbnails')">📁</button></h2>
+          <div id="head-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Glasses <button onclick="toggleThumbnails('glasses-thumbnails')">📁</button></h2>
+          <div id="glasses-thumbnails" class="thumbnails"></div>
+        </div>
+        <div class="trait-section">
+          <h2>Hand <button onclick="toggleThumbnails('hand-thumbnails')">📁</button></h2>
+          <div id="hand-thumbnails" class="thumbnails"></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+<div id="trait-tooltip" class="trait-tooltip">
+  <img id="tooltip-img" src="" alt="Preview" />
+</div>
+
+  </body>
+  
+  </html>
+  
