@@ -269,5 +269,22 @@ h1 {
     cursor: pointer;
   }
   
-  
+  /* Thumbnail Image Styles for All Trait Sections */
+[id$="-thumbnails"] img {
+  width: 48px;
+  height: auto;
+  image-rendering: pixelated;
+  border: 2px solid white;
+  background-color: #111;
+  border-radius: 6px;
+  margin: 4px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+[id$="-thumbnails"] img:hover {
+  transform: scale(1.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
   

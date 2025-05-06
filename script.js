@@ -16,15 +16,20 @@ function toggleThumbnails(sectionId) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
   
-    files.forEach(file => {
-      const img = document.createElement('img');
+    files.forEach((file) => {
+      const img = document.createElement("img");
       img.src = `${folderPath}/${file}`;
-      img.className = 'trait-thumb';
-      img.onclick = () => {
+      img.alt = file;
+      img.title = file.replace(".png", "").replaceAll(/[-_]/g, " "); // 👈 tooltip
+      img.classList.add("thumbnail");
+    
+      img.addEventListener("click", () => {
         document.getElementById(traitType).src = `${folderPath}/${file}`;
-      };
+      });
+    
       container.appendChild(img);
     });
+    
   }
   
   window.onload = () => {
