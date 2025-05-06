@@ -49,13 +49,14 @@ function toggleThumbnails(sectionId) {
   
   // Call the function for each trait type
   window.onload = () => {
-    loadTraitThumbnails('background', 'background-thumbnails', 'traits/background');
-    loadTraitThumbnails('skin', 'skin-thumbnails', 'traits/skin');
-    loadTraitThumbnails('face', 'face-thumbnails', 'traits/face');
-    loadTraitThumbnails('body', 'body-thumbnails', 'traits/body');
-    loadTraitThumbnails('head', 'head-thumbnails', 'traits/head');
-    loadTraitThumbnails('glasses', 'glasses-thumbnails', 'traits/glasses');
-    loadTraitThumbnails('hand', 'hand-thumbnails', 'traits/hand');
+    loadTraitThumbnails('background', 'background-thumbnails', './traits/background');
+    loadTraitThumbnails('skin', 'skin-thumbnails', './traits/skin');
+    loadTraitThumbnails('face', 'face-thumbnails', './traits/face');
+    loadTraitThumbnails('body', 'body-thumbnails', './traits/body');
+    loadTraitThumbnails('head', 'head-thumbnails', './traits/head');
+    loadTraitThumbnails('glasses', 'glasses-thumbnails', './traits/glasses');
+    loadTraitThumbnails('hand', 'hand-thumbnails', './traits/hand');
+    
     // Test change to trigger GitHub Desktop
 
     
