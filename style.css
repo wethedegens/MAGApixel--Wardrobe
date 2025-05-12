@@ -63,6 +63,7 @@ h1 {
 .trait-section h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
+  color: black; /* 🔥 THIS LINE FIXES THE ISSUE */
 }
 
 .thumbnails {
@@ -85,29 +86,24 @@ h1 {
     cursor: pointer;
   }
   
-  .thumbnails img {
-    width: 40px;
-    height: auto;
-    margin: 4px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
   #canvas img:not([src]):not([src=""]) {
     visibility: hidden;
   }
-  #download-btn {
-    margin-top: 1rem;
-    padding: 10px 20px;
-    font-family: 'VT323', monospace;
-    font-size: 1.25rem;
-    cursor: pointer;
-    background-color: #222;
-    color: white;
-    border: 2px solid #fff;
-    border-radius: 5px;
-  }
+#download-btn {
+  background-color: #222;
+  color: white;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-family: 'VCR OSD Mono', monospace;
+  font-size: 14px;
+  height: 44px;
+  min-width: 120px;
+  max-width: 150px;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
   #randomize-btn {
     background-color: #0066cc; /* Use your trait blue or tweak if needed */
     color: white;
@@ -118,35 +114,44 @@ h1 {
     cursor: pointer;
     font-family: 'VCR OSD Mono', monospace;
   }
-  #clear-btn {
-    background-color: #cc0000;
-    color: white;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    padding: 8px 12px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-family: 'VCR OSD Mono', monospace;
-  }
-  #save-fav-btn, #load-fav-btn {
-    margin-top: 10px;
-    padding: 6px 12px;
-    font-family: "VCR OSD Mono", monospace;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    transition: background 0.2s ease;
-  }
-  
-  #save-fav-btn:hover {
-    background-color: #444;
-  }
-  
-  #load-fav-btn:hover {
-    background-color: #555;
-  }
+#clear-btn {
+  background-color: #cc0000;
+  color: white;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  font-family: 'VCR OSD Mono', monospace;
+  font-size: 14px;
+  height: 44px;
+  min-width: 120px;
+  max-width: 150px;
+  padding: 6px 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#save-fav-btn, #load-fav-btn {
+  background-color: #f0b400;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  padding: 6px 12px;
+  height: 44px;
+  min-width: 120px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#load-fav-btn {
+  background-color: #3c4d63;
+  border-color: #3c4d63;
+}
+
+
   
   
   
@@ -268,23 +273,68 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
   }
+  .gif-controls {
+    margin-top: 15px;
+    text-align: center;
+  }
   
-  /* Thumbnail Image Styles for All Trait Sections */
-[id$="-thumbnails"] img {
-  width: 48px;
-  height: auto;
-  image-rendering: pixelated;
-  border: 2px solid white;
-  background-color: #111;
+  .gif-controls select,
+  .gif-controls button {
+    margin: 6px;
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    padding: 4px 10px;
+  }
+  .button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-row button {
+  flex: 1 1 100px;
+  padding: 8px 12px;
+  font-family: 'VCR OSD Mono', monospace;
+  font-size: 14px;
+  background-color: #222;
+  color: #fff;
+  border: 2px solid #555;
   border-radius: 6px;
-  margin: 4px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
+  min-width: 120px;
+  max-width: 150px;
+  transition: background-color 0.2s ease;
 }
 
-[id$="-thumbnails"] img:hover {
-  transform: scale(1.25);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+.button-row button:hover {
+  background-color: #444;
+}
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.button-row button {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+button:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+  
   
