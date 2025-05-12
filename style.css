@@ -42,10 +42,14 @@ h1 {
 }
 
 .canvas-column {
+  .canvas-title {
+  color: white;
+}
   flex: 0 0 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 #canvas {
