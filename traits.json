@@ -1,0 +1,29 @@
+{
+  "background": [
+    "blue.png",
+    "ovaloffice.png"
+  ],
+  "skin": [
+    "light.png",
+    "dark.png"
+  ],
+  "face": [
+    "smile.png",
+    "serious.png"
+  ],
+  "body": [
+    "suit.png",
+    "military.png"
+  ],
+  "head": [
+    "hat.png",
+    "crown.png"
+  ],
+  "glasses": [
+    "shades.png"
+  ],
+  "hand": [
+    "sword.png",
+    "mug.png"
+  ]
+}
