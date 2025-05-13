@@ -1,7 +1,8 @@
 // Toggle visibility of trait section
 function toggleThumbnails(sectionId) {
   const section = document.getElementById(sectionId);
-  section.style.display = section.style.display === 'none' ? 'flex' : 'none';
+  const isHidden = window.getComputedStyle(section).display === 'none';
+  section.style.display = isHidden ? 'flex' : 'none';
 }
 
 // Load trait thumbnails from the JSON data
