@@ -3,7 +3,19 @@ function toggleThumbnails(sectionId) {
   const section = document.getElementById(sectionId);
   const isHidden = window.getComputedStyle(section).display === 'none';
   section.style.display = isHidden ? 'flex' : 'none';
+  buttonSounds.folder.play(); // 👈 This plays the sound
 }
+
+
+const buttonSounds = {
+  download: new Audio('sounds/download.wav'),
+  random: new Audio('sounds/diceroll.wav'),
+  clear: new Audio('sounds/clear.wav'),
+  save: new Audio('sounds/loading.wav'),
+  load: new Audio('sounds/favorites.wav'),
+  theme: new Audio('sounds/toggle.mp3'),
+  folder: new Audio('sounds/folder.wav')
+};
 
 // Load trait thumbnails from the JSON data
 function loadTraitThumbnails(traitType, containerId, fileList) {
@@ -50,6 +62,7 @@ const themeToggleBtn = document.getElementById("theme-toggle-btn");
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
+    buttonSounds.theme.play();
   });
 }
 
@@ -57,6 +70,7 @@ if (themeToggleBtn) {
 const downloadBtn = document.getElementById("download-btn");
 if (downloadBtn) {
   downloadBtn.addEventListener("click", () => {
+    buttonSounds.download.play();
     const canvasContainer = document.getElementById("canvas");
     html2canvas(canvasContainer).then(canvas => {
       const link = document.createElement("a");
@@ -69,6 +83,7 @@ if (downloadBtn) {
 
 // Randomize traits
 function randomizeTraits() {
+  buttonSounds.random.play();
   const traitTypes = ['background', 'skin', 'face', 'body', 'head', 'glasses', 'hand'];
   traitTypes.forEach(trait => {
     const container = document.getElementById(`${trait}-thumbnails`);
@@ -83,6 +98,7 @@ document.getElementById("randomize-btn").addEventListener("click", randomizeTrai
 
 // Clear all traits
 function clearAllTraits() {
+  buttonSounds.clear.play();
   const traitTypes = ['background', 'skin', 'face', 'body', 'head', 'glasses', 'hand'];
   traitTypes.forEach(trait => {
     const img = document.getElementById(trait);
@@ -120,6 +136,7 @@ const saveBtn = document.getElementById("save-fav-btn");
 const loadBtn = document.getElementById("load-fav-btn");
 if (saveBtn && loadBtn) {
   saveBtn.addEventListener("click", () => {
+    buttonSounds.save.play();
     const traitTypes = ['background', 'skin', 'face', 'body', 'head', 'glasses', 'hand'];
     const combo = {};
     traitTypes.forEach(trait => {
@@ -131,6 +148,7 @@ if (saveBtn && loadBtn) {
   });
 
   loadBtn.addEventListener("click", () => {
+    buttonSounds.load.play();
     const saved = localStorage.getItem("magapixelFavorite");
     if (!saved) return alert("No favorite saved yet!");
     const combo = JSON.parse(saved);
