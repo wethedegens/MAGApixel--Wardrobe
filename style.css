@@ -26,10 +26,11 @@ h1 {
 
 .header-image {
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 40px auto; /* adds extra bottom spacing */
   max-width: 850px;
   height: auto;
 }
+
 
 .app-container {
   display: flex;
